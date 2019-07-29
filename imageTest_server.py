@@ -50,7 +50,7 @@ class Greeter(imageTest_pb2_grpc.ImageTestServicer):
 def serve():
   server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
   imageTest_pb2_grpc.add_ImageTestServicer_to_server(Greeter(), server)
-  server.add_insecure_port('[::]:50051')
+  server.add_insecure_port('[::]:8080')
   server.start()
   try:
     while True:
